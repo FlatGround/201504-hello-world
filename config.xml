@@ -17,6 +17,9 @@
         FlatGround
     </author>
 
+    <!-- Android prefs -->
+    <gap:platform name="android" />
+
     <!-- We'll include the Barcode plugin as an example -->
     <gap:plugin name="com.cowbell.cordova.geofence" source="plugins.cordova.io" />
 </widget>
