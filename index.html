@@ -18,25 +18,42 @@
 
             // log
             var el                      = document.getElementById( 'wrapper' );
-            el.innerHTML                = 'Location loading';
+            el.innerHTML                = 'Location loading<br />';
 
             document.addEventListener('deviceready', function () {
                 
-                el.innerHTML            = 'Location loading...';
-
-                el.innerHTML            += window.geofence;
-
                 // window.geofence is now available
-                window.geofence.initialize(onSuccess, onError)
+                window.geofence.initialize( handleSuccess, handleFail)
 
 
-                el.innerHTML            = 'device ready';
+                el.innerHTML            = 'device ready<br />';
 
-                function onSuccess(){                
-                    el.innerHTML        = el.innerHTML + '<br />SUCCESS';
+                function handleSuccess(){                
+                    el.innerHTML        += 'SUCCESS<br />';
+
+                    window.geofence.addOrUpdate({
+                        id:             'Delfgauwseweg104', //A unique identifier of geofence
+                        latitude:       52.007028, //Geo latitude of geofence
+                        longitude:      4.381615, //Geo longitude of geofence
+                        radius:         500, //Radius of geofence in meters
+                        transitionType: 1, //Type of transition 1 - Enter, 2 - Exit, 3 - Both
+                        notification: {         //Notification object
+                            id:             2628104, //optional should be integer, id of notification
+                            title:          'Welkom', //Title of notification
+                            text:           'U bent op de Delfgauwseweg 104', //Text of notification
+                            openAppOnClick: true,//is main app activity should be opened after clicking on notification
+                            data:           { param: 'success' }  //Custom object associated with notification
+                        }
+                    }).then(function () {
+                        el.innerHTML        += 'Geofence successfully added<br />';
+                    }, function (reason) {
+                        el.innerHTML        += 'Adding geofence failed<br />';
+                        el.innerHTML        += reason + '<br />';
+                    });
+
                 }
-                function onError(){
-                    el.innerHTML        = el.innerHTML + '<br />ERROR';
+                function handleFail(){
+                    el.innerHTML        += 'ERROR<br />';
                 }
             }, false);
         }
@@ -60,14 +77,13 @@
 
     #wrapper {
         width: 200px;
-        height: 40px;
 
         margin: 50px auto 0 auto;
         position: relative;
         background: #EEE;
 
         text-align: center;
-        line-height: 40px;
+        line-height: 20px;
     }
 
 
