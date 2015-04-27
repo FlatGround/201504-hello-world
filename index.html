@@ -11,6 +11,11 @@
 
         window.onload = function(){
 
+            // version
+            var version                 = '1.0.1';
+            document.getElementById( 'version' ).innerHTML = version;
+
+            // log
             var el                      = document.getElementById( 'wrapper' );
             el.innerHTML                = 'Location loading';
 
@@ -69,6 +74,7 @@
 </head>
 
 <body>
+    <div id="version"></div>
 	<div id="wrapper">
         ...
 	</div>
