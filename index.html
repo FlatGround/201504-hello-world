@@ -8,10 +8,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script>
+        var log             = document.getElementById( '#page' );
 
+        log.innerHTML       = 'Location loading';
+         
         document.addEventListener('deviceready', function () {
             
-            var log             = document.getElementById( '#page' );
+            
 
             // window.geofence is now available
             window.geofence.initialize(onSuccess, onError)
@@ -62,7 +65,7 @@
 
 <body>
 	<div id="page">
-        Location loading.
+        ...
 	</div>
 </body>
 </html>
