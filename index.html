@@ -11,18 +11,19 @@
 
     <script>
 
-    window.onload = function() {
-        window.geofence.initialize(onSuccess, onError)
+        document.addEventListener('deviceready', function () {
+            // window.geofence is now available
+            window.geofence.initialize(onSuccess, onError)
 
-        function onSuccess(){
-            var log             = document.getElementById( '#page' );
-            log.innerHTML       = 'SUCCESS';
-        }
-        function onError(){
-            var log             = document.getElementById( '#page' );
-            log.innerHTML       = 'ERROR';
-        }
-    }
+            function onSuccess(){
+                var log             = document.getElementById( '#page' );
+                log.innerHTML       = 'SUCCESS';
+            }
+            function onError(){
+                var log             = document.getElementById( '#page' );
+                log.innerHTML       = 'ERROR';
+            }
+        }, false);
 
     </script>
     <style>
