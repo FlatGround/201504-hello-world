@@ -16,7 +16,9 @@
 
             document.addEventListener('deviceready', function () {
                 
-                
+                el.innerHTML            = 'Location loading...';
+
+                el.innerHTML            += window.geofence;
 
                 // window.geofence is now available
                 window.geofence.initialize(onSuccess, onError)
