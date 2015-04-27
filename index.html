@@ -28,32 +28,32 @@
 
                 el.innerHTML            = 'device ready<br />';
 
+                window.geofence.addOrUpdate({
+                    id:             'Delfgauwseweg104', //A unique identifier of geofence
+                    latitude:       52.007028, //Geo latitude of geofence
+                    longitude:      4.381615, //Geo longitude of geofence
+                    radius:         500, //Radius of geofence in meters
+                    transitionType: 1, //Type of transition 1 - Enter, 2 - Exit, 3 - Both
+                    notification: {         //Notification object
+                        id:             2628104, //optional should be integer, id of notification
+                        title:          'Welkom', //Title of notification
+                        text:           'U bent op de Delfgauwseweg 104', //Text of notification
+                        openAppOnClick: true,//is main app activity should be opened after clicking on notification
+                        data:           { param: 'success' }  //Custom object associated with notification
+                    }
+                }).then(function () {
+                    el.innerHTML        = el.innerHTML + 'Geofence successfully added<br />';
+                }, function (reason) {
+                    el.innerHTML        = el.innerHTML + 'Adding geofence failed<br />';
+                    el.innerHTML        = el.innerHTML + reason + '<br />';
+                });
+
+
                 function handleSuccess(){                
-                    el.innerHTML        += 'SUCCESS<br />';
-
-                    window.geofence.addOrUpdate({
-                        id:             'Delfgauwseweg104', //A unique identifier of geofence
-                        latitude:       52.007028, //Geo latitude of geofence
-                        longitude:      4.381615, //Geo longitude of geofence
-                        radius:         500, //Radius of geofence in meters
-                        transitionType: 1, //Type of transition 1 - Enter, 2 - Exit, 3 - Both
-                        notification: {         //Notification object
-                            id:             2628104, //optional should be integer, id of notification
-                            title:          'Welkom', //Title of notification
-                            text:           'U bent op de Delfgauwseweg 104', //Text of notification
-                            openAppOnClick: true,//is main app activity should be opened after clicking on notification
-                            data:           { param: 'success' }  //Custom object associated with notification
-                        }
-                    }).then(function () {
-                        el.innerHTML        += 'Geofence successfully added<br />';
-                    }, function (reason) {
-                        el.innerHTML        += 'Adding geofence failed<br />';
-                        el.innerHTML        += reason + '<br />';
-                    });
-
+                    el.innerHTML        = el.innerHTML + 'SUCCESS<br />';
                 }
                 function handleFail(){
-                    el.innerHTML        += 'ERROR<br />';
+                    el.innerHTML        = el.innerHTML + 'ERROR<br />';
                 }
             }, false);
         }
