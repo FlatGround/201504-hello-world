@@ -20,6 +20,6 @@
     <!-- Android prefs -->
     <gap:platform name="android" />
 
-    <!-- Plugin -->
-    <gap:plugin name="org.transistorsoft.cordova.background-geolocation" version="0.3.5" />
+    <!-- We'll include the Barcode plugin as an example -->
+    <gap:plugin name="com.cowbell.cordova.geofence" source="plugins.cordova.io" />
 </widget>
