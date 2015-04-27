@@ -10,16 +10,20 @@
     <script>
 
         document.addEventListener('deviceready', function () {
+            
+            var log             = document.getElementById( '#page' );
+
             // window.geofence is now available
             window.geofence.initialize(onSuccess, onError)
 
-            function onSuccess(){
-                var log             = document.getElementById( '#page' );
-                log.innerHTML       = 'SUCCESS';
+
+            log.innerHTML       = 'device ready';
+
+            function onSuccess(){                
+                log.innerHTML       = log.innerHTML + '<br />SUCCESS';
             }
             function onError(){
-                var log             = document.getElementById( '#page' );
-                log.innerHTML       = 'ERROR';
+                log.innerHTML       = log.innerHTML + '<br />ERROR';
             }
         }, false);
 
