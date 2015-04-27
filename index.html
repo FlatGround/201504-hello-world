@@ -15,13 +15,16 @@
 
 
             // version
-            var version                 = '1.0.1';
-            console.log( version );
+            var version                 = '1.0.2';
+
             document.getElementById( 'version' ).innerHTML = version;
 
             // log
             var el                      = document.getElementById( 'wrapper' );
             el.innerHTML                = 'Location loading<br />';
+
+            el.innerHTML                = el.innerHTML + window;
+            el.innerHTML                = el.innerHTML + window.geofence;
 
             document.addEventListener('deviceready', function () {
                 
