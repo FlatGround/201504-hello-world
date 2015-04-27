@@ -8,27 +8,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script>
-        var log             = document.getElementById( 'page' );
 
-        log.innerHTML       = 'Location loading';
+        window.onload = function(){
 
-        document.addEventListener('deviceready', function () {
-            
-            
+            var el                      = document.getElementById( 'wrapper' );
+            el.innerHTML                = 'Location loading';
 
-            // window.geofence is now available
-            window.geofence.initialize(onSuccess, onError)
+            document.addEventListener('deviceready', function () {
+                
+                
+
+                // window.geofence is now available
+                window.geofence.initialize(onSuccess, onError)
 
 
-            log.innerHTML       = 'device ready';
+                el.innerHTML            = 'device ready';
 
-            function onSuccess(){                
-                log.innerHTML       = log.innerHTML + '<br />SUCCESS';
-            }
-            function onError(){
-                log.innerHTML       = log.innerHTML + '<br />ERROR';
-            }
-        }, false);
+                function onSuccess(){                
+                    el.innerHTML        = el.innerHTML + '<br />SUCCESS';
+                }
+                function onError(){
+                    el.innerHTML        = el.innerHTML + '<br />ERROR';
+                }
+            }, false);
+        }
 
     </script>
     <style>
@@ -47,7 +50,7 @@
     }
 
 
-    #page {
+    #wrapper {
         width: 200px;
         height: 40px;
 
@@ -64,7 +67,7 @@
 </head>
 
 <body>
-	<div id="page">
+	<div id="wrapper">
         ...
 	</div>
 </body>
