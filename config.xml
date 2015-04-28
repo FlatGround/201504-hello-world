@@ -21,5 +21,6 @@
     <gap:platform name="android" />
 
     <!-- We'll include the Barcode plugin as an example -->
+    <gap:plugin name="com.vladstirbu.cordova.promise" version="1.0.0" />
     <gap:plugin name="com.cowbell.cordova.geofence" source="plugins.cordova.io" />
 </widget>
