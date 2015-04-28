@@ -28,6 +28,15 @@
 
             document.addEventListener('deviceready', function () {
                 
+                function handleSuccess(){                
+                    el.innerHTML        = el.innerHTML + 'SUCCESS<br />';
+                }
+                function handleFail(){
+                    el.innerHTML        = el.innerHTML + 'ERROR<br />';
+                }
+
+
+                
                 // window.geofence is now available
                 window.geofence.initialize( handleSuccess, handleFail)
 
@@ -59,12 +68,7 @@
                 });
 
 
-                function handleSuccess(){                
-                    el.innerHTML        = el.innerHTML + 'SUCCESS<br />';
-                }
-                function handleFail(){
-                    el.innerHTML        = el.innerHTML + 'ERROR<br />';
-                }
+                
             }, false);
         }
 
