@@ -32,9 +32,7 @@
                 window.geofence.initialize( handleSuccess, handleFail)
 
                 for (var key in window.geofence) {
-                  if (window.geofence.hasOwnProperty(key)) {
                     el.innerHTML                = el.innerHTML +  key + " -> " + window.geofence[key] +'<br />';
-                  }
                 }
 
 
